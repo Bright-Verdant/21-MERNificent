@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
-  Jumbotron,
+  
   Container,
   Col,
   Form,
   Button,
   Card,
-  CardColumns,
+  
 } from "react-bootstrap";
 
 import Auth from "../utils/auth";
@@ -97,30 +97,49 @@ const SearchBooks = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
+      <div className="Jumbotron">
         <Container>
           <h1>Search for Books!</h1>
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name="searchInput"
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type="text"
-                  size="lg"
-                  placeholder="Search for a book"
-                />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type="submit" variant="success" size="lg">
-                  Submit Search
-                </Button>
-              </Col>
-            </Form.Row>
-          </Form>
+          <div onSubmit={handleFormSubmit}>
+            <div className="form-group">
+              <label htmlFor="searchInput">Search for a book</label>
+              <input
+                className="form-control"
+                name="searchInput"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                placeholder="Search for a book"
+              />
+            </div>
+            <button type="submit" className="btn btn-success">
+              Submit Search
+            </button>
+          </div>
+          
         </Container>
-      </Jumbotron>
+      </div>
+
+      
+
+
+{/* <div onSubmit={handleFormSubmit}>
+            <div className="form-group">
+              <label htmlFor="searchInput">Search for a book</label>
+              <input
+                className="form-control"
+                name="searchInput"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+                type="text"
+                placeholder="Search for a book"
+              />
+            </div>
+            <button type="submit" className="btn btn-success">
+              Submit Search
+            </button>
+          </div> */}
+
 
       <Container>
         <h2>
@@ -128,7 +147,7 @@ const SearchBooks = () => {
             ? `Viewing ${searchedBooks.length} results:`
             : "Search for a book to begin"}
         </h2>
-        <CardColumns>
+        <div className="Card-Columns">
           {searchedBooks.map((book) => {
             return (
               <Card key={book.bookId} border="dark">
@@ -162,7 +181,7 @@ const SearchBooks = () => {
               </Card>
             );
           })}
-        </CardColumns>
+        </div>
       </Container>
     </>
   );
